@@ -2,12 +2,13 @@ import geopandas
 import matplotlib.pyplot as plt
 import numpy
 import pandas as pd
-import shapely.wkt
 import shapely.geometry
+import shapely.wkt
 
 pd.set_option('display.max_colwidth', -1)
 pd.set_option('display.max_columns', None)
-checkins_df = pd.read_csv('/Users/greguska/Downloads/assignment1/data/checkins.txt', delim_whitespace=True, header=None,
+checkins_df = pd.read_csv('https://drive.google.com/uc?export=download&id=1JhMvpBI1GoRhICImQjQrZvp6PMBpvAHJ',
+                          delim_whitespace=True, header=None,
                           names=['userid', 'locationid', 'hours_since_epoch', 'lat', 'lon'])
 
 checkins_gdf = geopandas.GeoDataFrame(
@@ -35,7 +36,6 @@ tokyo_gdf = geopandas.GeoDataFrame(pd.DataFrame({'name': ['Tokyo'], 'geometry': 
 # MIN_LAT = 35.55 MAX_LAT = 35.76 DELTA_LAT = 0.00021021
 x_ticks = numpy.arange(139.49, 139.91, 0.000210105)
 y_ticks = numpy.arange(35.55, 35.76, 0.00021021)
-
 
 fig, ax = plt.subplots(figsize=(10, 10), dpi=300)
 ax.set_aspect('equal')
